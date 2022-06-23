@@ -25,9 +25,8 @@ champ_mastery_raw = lol_watcher.champion_mastery.by_summoner(my_region, me['id']
 
 #create a dataframe with champion mastery data
 champion_mastery = pd.DataFrame(champ_mastery_raw)
-#champion_mastery = champion_mastery.drop('summonerId', 1)
 
-#join dataframes to add champion names
+#join champion_mastery and champion_keys dataframes to add champion names
 summoner_champion_mastery = pd.merge(champion_mastery, champion_keys, how='inner')
 
 #move champion names to the first columm, drop summonerId, sort by championPoints desc
